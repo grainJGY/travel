@@ -1,0 +1,87 @@
+<!-- tickey.wxml -->
+<import src='/template/footer/footer.wxml'/>
+
+<scroll-view class='warp-container' scroll-y>
+    <!-- 头部 -->
+    <view class='header'>
+        <banner banner-image='{{bannerImage}}'
+            banner-head='{{bannerHead}}'
+            banner-desc='{{bannerDesc}}'>
+        </banner>
+    </view>
+
+    <!-- 内容 -->
+    <view class='main'>
+        <!-- 票务预定 -->
+        <panel class='reservation' panel-head='{{resHead}}'>
+            <view class='res-body' slot='panelBody'>
+                <!-- 切换条 -->
+                <grain-tabbar active-index='{{activeType}}'
+                    tabbar-list='{{ticketTypeList}}'
+                    bindselecttabbar='getSelectTabbar'>
+                </grain-tabbar>
+
+                <!-- 表单 -->
+                <form class='ticket-form' slot='panelBody'>
+                    <view class='form-item start-city'>
+                        <label class='form-label' for='startCity'>出发地：</label>
+                        <picker class='form-input' id='startCity' mode='region' 
+                            bindchange='changeStartCity' 
+                            value='{{selectStartCity}}'
+                            placeholder='选择出发地'>
+                            <text class='form-text'>{{selectStartCity[0]}}-{{selectStartCity[1]}}-{{selectStartCity[2]}}</text>
+                        </picker>
+                    </view>
+                    <view class='form-item dest-city'>
+                        <label class='form-label' for='destCity'>目的地：</label>
+                        <picker class='form-input' id='destCity' mode='region' 
+                            bindchange='changeDestCity' 
+                            value='{{selectDestCity}}'
+                            placeholder='选择目的地'>
+                            <text class='form-text'>{{selectDestCity[0]}}-{{selectDestCity[1]}}-{{selectDestCity[2]}}</text>
+                        </picker>
+                    </view>
+                    <view class='form-item start-date'>
+                        <label class='form-label' for='startDate'>出发日：</label>
+                        <picker class='form-input' id='startDate' mode='date'
+                            value='{{startDate}}'
+                            placeholder='{{startDate}}'
+                            bindchange='changeStartDate'>
+                            <text class='form-text'>{{startDate}}</text>
+                        </picker>
+                    </view>
+                    <view class='form-item dest-date' wx:if='{{isShowDest}}'>
+                        <label class='form-label' for='destDate'>返程日：</label>
+                        <picker class='form-input' id='destDate' mode='date'
+                            value='{{destDate}}'
+                            placeholder='{{destDate}}'
+                            bindchange='changeDestDate'>
+                            <text class='form-text'>{{destDate}}</text>
+                        </picker>
+                    </view>
+                    <view class='book-ticket'>
+                        <button size='mini' form-type='reset'>订票</button>
+                    </view>
+                </form>
+            </view>
+        </panel>
+
+        <!-- 最新票务 -->
+        <panel class='latest' panel-head='{{latestHead}}'>
+            <view class='latest-body' slot='panelBody'>
+                <!-- 切换条 -->
+                <grain-tabbar active-index='{{activeIndex}}' tabbar-list='{{tabbarList}}'></grain-tabbar>
+
+                <!-- 表格 -->
+                <table class='latest-table' t-class='{{latestTableClass}}'
+                    t-head='{{latestTableHead}}'
+                    t-body='{{latestTableBody}}'
+                    col-width='{{latestColWidth}}'>
+                </table>
+            </view>
+        </panel>
+    </view>
+
+    <!-- 尾部 -->
+    <template is='grainFooter' />
+</scroll-view>

@@ -1,0 +1,25 @@
+<!--components/table/table.wxml-->
+<view class='table {{tClass}}'>
+    <view class='thead'>
+        <view class='tr'>
+            <view class='th' wx:for='{{tHead}}'
+                wx:key='{{index}}'
+                style='width: {{colWidth}}'>
+                <view class='cell'>{{item}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='tbody'>
+        <view class='tr' wx:for='{{tBody}}'
+            wx:for-index='i'
+            wx:key='{{i}}'>
+            <view class='td' wx:for='{{item}}' 
+                wx:for-index='j'
+                wx:for-item='subItem' 
+                wx:key='{{j}}'
+                style='width: {{colWidth}}'>
+                <view class='cell'>{{subItem}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+<!--components/tabbar/tabbar.wxml-->
+<view class='grain-tabbar'>
+    <view class='tabbar'>
+        <view class='tabbar-body'>
+            <block wx:for='{{tabbarList}}' wx:key='{{index}}'>
+                <view class='tabbar-title' data-name='{{item.value}}'
+                    wx:if='{{item.isTitle}}'>
+                    {{item.name}}
+                </view>
+                <view class='tabbar-item {{activeIndex === index ? "active" : ""}}'
+                    data-name='{{item.value}}'
+                    data-index='{{index}}'
+                    wx:else
+                    bindtap='changeItem'>
+                    {{item.name}}
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,50 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/info/info",
+        "pages/ticket/ticket",
+        "pages/scenery/scenery",
+        "pages/about/about"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#0960bd",
+        "navigationBarTitleText": "grain足迹",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "selectedColor": "#409EFF",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabBar/home.png",
+                "selectedIconPath": "images/tabBar/select_home.png"
+            },
+            {
+                "pagePath": "pages/info/info",
+                "text": "资讯",
+                "iconPath": "images/tabBar/info.png",
+                "selectedIconPath": "images/tabBar/select_info.png"
+            },
+            {
+                "pagePath": "pages/ticket/ticket",
+                "text": "票务",
+                "iconPath": "images/tabBar/ticket.png",
+                "selectedIconPath": "images/tabBar/select_ticket.png"
+            },
+            {
+                "pagePath": "pages/scenery/scenery",
+                "text": "风景",
+                "iconPath": "images/tabBar/scenery.png",
+                "selectedIconPath": "images/tabBar/select_scenery.png"
+            },
+            {
+                "pagePath": "pages/about/about",
+                "text": "我们",
+                "iconPath": "images/tabBar/about.png",
+                "selectedIconPath": "images/tabBar/select_about.png"
+            }
+        ]
+    }
+}
